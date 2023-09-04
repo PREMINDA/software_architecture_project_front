@@ -8,11 +8,14 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatTableModule} from "@angular/material/table";
+import { HeaderComponent } from './header/header.component';
+import {RouterLink} from "@angular/router";
 
-
+const components = [
+  HeaderComponent,
+];
 
 const modules = [
-  CommonModule,
   MatToolbarModule,
   MatButtonModule,
   MatFormFieldModule,
@@ -24,13 +27,14 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [...components],
   imports: [
     CommonModule,
-    ...modules
+    RouterLink
   ],
-  exports:[
-    ...modules
-  ]
+  exports: [
+    ...modules,
+    ...components
+  ],
 })
 export class SharedModule { }
