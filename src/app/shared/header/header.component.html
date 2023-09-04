@@ -2,7 +2,7 @@
   <mat-toolbar color="primary">
     <span>E-Commerce Application</span>
     <span class="space-buttons"></span>
-    <button *ngIf="!isLoggedIn()" routerLink="/login" mat-raised-button color="primary">Login</button>
+    <button *ngIf="!isLoggedIn()" routerLink="/login" mat-raised-button color="">Login</button>
     <button *ngIf="isLoggedIn()" (click)="logout()" mat-raised-button color="warn">Logout</button>
   </mat-toolbar>
 

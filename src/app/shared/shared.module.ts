@@ -30,7 +30,8 @@ const modules = [
   declarations: [...components],
   imports: [
     CommonModule,
-    RouterLink
+    RouterLink,
+    ...modules
   ],
   exports: [
     ...modules,
