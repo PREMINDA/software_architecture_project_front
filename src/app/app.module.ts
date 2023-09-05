@@ -22,6 +22,7 @@ import { UserOrderComponent } from './user-order/user-order.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { BuyProductComponent } from './buy-product/buy-product.component';
+import { DragDirective } from './derective/drag.directive';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { BuyProductComponent } from './buy-product/buy-product.component';
     UserOrderComponent,
     OrderDetailsComponent,
     OrderConfirmationComponent,
-    BuyProductComponent
+    BuyProductComponent,
+    DragDirective
   ],
   imports: [
     CommonModule,

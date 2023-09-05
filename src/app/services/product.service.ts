@@ -40,7 +40,7 @@ export class ProductService {
     return this.httpClient.delete("http://localhost:9090/deleteProductDetails/"+productId);
   }
 
-  public getProductDetails(isSingeProductCheckout:string,productId:string){
+  public getProductDetails(isSingeProductCheckout: string | null, productId: string | null){
     return this.httpClient.get<Product[]>("http://localhost:9090/getProductDetails/"+isSingeProductCheckout+"/"+productId);
   }
 
