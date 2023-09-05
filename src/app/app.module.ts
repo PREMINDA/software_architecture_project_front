@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductImageDialogComponent } from './product-image-dialog/product-image-dialog.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ProductImageDialogComponent } from './product-image-dialog/product-imag
     HomeComponent,
     CartComponent,
     ProductDetailComponent,
-    ProductImageDialogComponent
+    ProductImageDialogComponent,
+    ForbiddenComponent,
+    AdminComponent
   ],
   imports: [
     CommonModule,
