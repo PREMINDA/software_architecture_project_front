@@ -1,0 +1,94 @@
+import { Component } from '@angular/core';
+import {ImageProcessingService} from "../services/image-processing.service";
+import {Product} from "../model/product.model";
+import {ProductService} from "../services/product.service";
+import {MatDialog} from "@angular/material/dialog";
+import {Router} from "@angular/router";
+import {map} from "rxjs";
+import {HttpErrorResponse} from "@angular/common/http";
+import {ProductImageDialogComponent} from "../product-image-dialog/product-image-dialog.component";
+
+@Component({
+  selector: 'app-product-detail',
+  templateUrl: './product-detail.component.html',
+  styleUrls: ['./product-detail.component.css']
+})
+export class ProductDetailComponent {
+  showLoadMoreProductButton = false;
+  showTable = false;
+  pageNumber: number = 0;
+  productDetails : Product[] =[];
+  displayedColumns: string[] = ['Id', 'Product Name', 'Product Description', 'Product Discounted Price', 'Product Actual Price' ,'Actions'];
+  constructor(private productService: ProductService ,
+              public imagesDialog: MatDialog,
+              private imageProcessingService: ImageProcessingService,
+              private router: Router) { }
+
+  ngOnInit(): void {
+    this.getAllProducts();
+  }
+
+  searchByKeyword(searchkeyword:string){
+
+    this.pageNumber= 0;
+    this.productDetails= [];
+    this.getAllProducts(searchkeyword);
+
+  }
+
+  public getAllProducts(searchKey: string =""){
+    this.showTable = false;
+    this.productService.getAllProducts(this.pageNumber, searchKey)
+      .pipe(
+        map((x: Product[], i) => x.map((product: Product) => this.imageProcessingService.createImages(product)))
+      )
+      .subscribe(
+        (resp: Product[]) =>{
+          console.log(resp);
+          resp.forEach(product => this.productDetails.push(product));
+          this.showTable=true;
+          if(resp.length==2){
+            this.showLoadMoreProductButton=true;
+          }else{
+            this.showLoadMoreProductButton=false;
+          }
+          // this.productDetails = resp;
+        }, (error: HttpErrorResponse) => {
+          console.log(error);
+        }
+
+      );
+  }
+
+  loadMoreProduct(){
+    this.pageNumber= this.pageNumber+1;
+    this.getAllProducts();
+  }
+
+  deleteProduct(productId:number){
+    this.productService.deleteProduct(productId).subscribe(
+      (resp)=> {
+        this.getAllProducts();
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error);}
+    );
+  }
+
+  showImages(product: Product){
+    console.log(product);
+    this.imagesDialog.open(ProductImageDialogComponent, {
+      data: {
+        images: product.productImages
+      },
+      height: '500px',
+      width: '800px'
+    });
+
+  }
+
+  editProductDetails(productId:string){
+    this.router.navigate(['/addNewProduct', {productId: productId}])
+  }
+
+}

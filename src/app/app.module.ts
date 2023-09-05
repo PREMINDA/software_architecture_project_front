@@ -11,6 +11,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductImageDialogComponent } from './product-image-dialog/product-image-dialog.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { CartComponent } from './cart/cart.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    CartComponent
+    CartComponent,
+    ProductDetailComponent,
+    ProductImageDialogComponent
   ],
   imports: [
     CommonModule,
