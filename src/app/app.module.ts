@@ -17,6 +17,11 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AdminComponent } from './admin/admin.component';
 import { AddNewItemComponent } from './add-new-item/add-new-item.component';
 import { ProductViewDetailComponent } from './product-view-detail/product-view-detail.component';
+import { UserComponent } from './user/user.component';
+import { UserOrderComponent } from './user-order/user-order.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { BuyProductComponent } from './buy-product/buy-product.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,12 @@ import { ProductViewDetailComponent } from './product-view-detail/product-view-d
     ForbiddenComponent,
     AdminComponent,
     AddNewItemComponent,
-    ProductViewDetailComponent
+    ProductViewDetailComponent,
+    UserComponent,
+    UserOrderComponent,
+    OrderDetailsComponent,
+    OrderConfirmationComponent,
+    BuyProductComponent
   ],
   imports: [
     CommonModule,

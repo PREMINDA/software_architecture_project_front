@@ -45,7 +45,7 @@ export class ProductService {
   }
 
 
-  public placeOrder(orderDetails: OrderDetails, isCartCheckout:string){
+  public placeOrder(orderDetails: OrderDetails, isCartCheckout: string | null){
     return this.httpClient.post("http://localhost:9090/placeOrder/"+isCartCheckout, orderDetails);
   }
 
