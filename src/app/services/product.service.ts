@@ -20,7 +20,7 @@ export class ProductService {
     return this.httpClient.get<MyOrderDetails[]>("http://localhost:9090/getOrderDetails");
   }
 
-  public deleteCartItem(cartId:string){
+  public deleteCartItem(cartId:number){
     return this.httpClient.delete("http://localhost:9090/deleteCartItem/"+cartId);
   }
 
