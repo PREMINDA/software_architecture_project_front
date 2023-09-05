@@ -49,7 +49,7 @@ export class ProductService {
     return this.httpClient.post("http://localhost:9090/placeOrder/"+isCartCheckout, orderDetails);
   }
 
-  public addToCart(productId:string){
+  public addToCart(productId:number){
     return this.httpClient.get("http://localhost:9090/addToCart/"+productId);
   }
 

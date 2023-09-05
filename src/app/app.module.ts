@@ -15,6 +15,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductImageDialogComponent } from './product-image-dialog/product-image-dialog.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AdminComponent } from './admin/admin.component';
+import { AddNewItemComponent } from './add-new-item/add-new-item.component';
+import { ProductViewDetailComponent } from './product-view-detail/product-view-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AdminComponent } from './admin/admin.component';
     ProductDetailComponent,
     ProductImageDialogComponent,
     ForbiddenComponent,
-    AdminComponent
+    AdminComponent,
+    AddNewItemComponent,
+    ProductViewDetailComponent
   ],
   imports: [
     CommonModule,
