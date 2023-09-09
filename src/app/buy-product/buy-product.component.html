@@ -63,7 +63,7 @@
                 class="form-select"
                 [ngModel]="getQuantityForProduct(product.productId)"
                 (change)="onQuantityChanged(Number.parseInt(quantity.value), product.productId)">
-                <option value="">1</option>
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
               </select>
