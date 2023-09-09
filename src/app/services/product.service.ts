@@ -49,7 +49,8 @@ export class ProductService {
     return this.httpClient.post("http://localhost:9090/placeOrder/"+isCartCheckout, orderDetails);
   }
 
-  public addToCart(productId:number){
+  public addToCart(productId:number|undefined){
+    if(productId == undefined)return ;
     return this.httpClient.get("http://localhost:9090/addToCart/"+productId);
   }
 

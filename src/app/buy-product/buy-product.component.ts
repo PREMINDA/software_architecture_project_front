@@ -52,7 +52,7 @@ export class BuyProductComponent {
 
   }
 
-  getQuantityForProduct(productId : number){
+  getQuantityForProduct(productId : number|undefined){
     const filterProduct = this.orderDetails.orderProductQuantityList.filter(
       (productQuantity) => productQuantity.productId === productId
     );
@@ -60,7 +60,7 @@ export class BuyProductComponent {
 
   }
 
-  getCalculatedTotal(productId:number, productDiscountedPrice:number){
+  getCalculatedTotal(productId:number|undefined, productDiscountedPrice:number){
     const filterProduct = this.orderDetails.orderProductQuantityList.filter(
       (productQuantity) => productQuantity.productId === productId
     );
@@ -68,7 +68,7 @@ export class BuyProductComponent {
 
   }
 
-  onQuantityChanged(q:number, productId:number){
+  onQuantityChanged(q:number, productId:number|undefined){
     this.orderDetails.orderProductQuantityList.filter(
       (orderProduct) => orderProduct.productId === productId
     )[0].quantity=q;
@@ -84,4 +84,6 @@ export class BuyProductComponent {
     );
     return grandTotal;
   }
+
+  protected readonly Number = Number;
 }

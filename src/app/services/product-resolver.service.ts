@@ -31,7 +31,6 @@ export class ProductResolverService {
 
   getProductDetails(){
     return {
-      productId: null,
       productName: "",
       productDescription: "",
       productDiscountedPrice: 0,

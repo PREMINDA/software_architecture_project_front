@@ -7,7 +7,7 @@ import {CommonModule} from "@angular/common";
 import {SharedModule} from "./shared/shared.module";
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
@@ -23,6 +23,10 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { BuyProductComponent } from './buy-product/buy-product.component';
 import { DragDirective } from './derective/drag.directive';
+import {AuthGuard} from "./auth/auth.guard";
+import {AuthInterceptor} from "./auth/auth.interceptor";
+import {UserService} from "./services/user.service";
+import { EmailVerificationComponent } from './email-verification/email-verification.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,8 @@ import { DragDirective } from './derective/drag.directive';
     OrderDetailsComponent,
     OrderConfirmationComponent,
     BuyProductComponent,
-    DragDirective
+    DragDirective,
+    EmailVerificationComponent,
   ],
   imports: [
     CommonModule,
@@ -53,7 +58,17 @@ import { DragDirective } from './derective/drag.directive';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    UserService
+  ],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,9 +10,12 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {MatTableModule} from "@angular/material/table";
 import { HeaderComponent } from './header/header.component';
 import {RouterLink} from "@angular/router";
+import {AppModule} from "../app.module";
+import {IconButtonComponent} from "./component/icon-button/icon-button.component";
 
 const components = [
   HeaderComponent,
+  IconButtonComponent
 ];
 
 const modules = [
@@ -31,7 +34,7 @@ const modules = [
   imports: [
     CommonModule,
     RouterLink,
-    ...modules
+    ...modules,
   ],
   exports: [
     ...modules,

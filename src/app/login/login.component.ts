@@ -4,12 +4,20 @@ import {UserService} from "../services/user.service";
 import {Router} from "@angular/router";
 import {AuthService} from "../services/auth.service";
 
+interface errorMessage{
+  message:string;
+}
+
+interface errorpar{
+  error:errorMessage;
+}
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  error:string|undefined;
   constructor(
     private userService: UserService,
     private userAuthService: AuthService,
@@ -32,7 +40,8 @@ export class LoginComponent {
         }
       },
       (error) => {
-        console.log(error);
+        console.log(error)
+        this.error = (error as errorpar).error.message;
       }
     );
   }

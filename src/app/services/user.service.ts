@@ -32,6 +32,15 @@ export class UserService {
   }
 
 
+  public verify(token:string) {
+    return this.httpclient.post(this.PATH_OF_API + '/verifyEmail', {
+      token: token,
+    },{
+      headers: this.requestHeader,
+    });
+  }
+
+
   public forAdmin() {
     return this.httpclient.get(this.PATH_OF_API + '/forAdmin', {
       responseType: 'text',

@@ -57,7 +57,7 @@ export class HomeComponent {
     this.getAllProducts();
   }
 
-  showProductDetails(productId:string){
+  showProductDetails(productId:number|undefined){
     this.router.navigate(['/productViewDetails' , {productId: productId}]);
 
   }

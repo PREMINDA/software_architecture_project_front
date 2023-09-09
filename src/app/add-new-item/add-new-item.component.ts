@@ -15,7 +15,6 @@ import {FileHandel} from "../model/file-handle";
 export class AddNewItemComponent {
   isNewProduct = true;
   product: Product = {
-    productId: null,
     productName: "",
     productDescription: "",
     productDiscountedPrice: 0,

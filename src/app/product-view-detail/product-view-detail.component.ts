@@ -25,13 +25,14 @@ export class ProductViewDetailComponent {
     this.selectProductIndex=index;
   }
 
-  buyProduct(productId:number){
+  buyProduct(productId:number|undefined){
     this.router.navigate(['/buyProduct', {
       isSingleProductCheckout: true, id: productId
     }]);
   }
 
-  addToCart(productId:number){
+  addToCart(productId:number|undefined){
+    // @ts-ignore
     this.productService.addToCart(productId).subscribe(
       (response) => {
         console.log(response);
