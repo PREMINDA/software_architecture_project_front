@@ -19,7 +19,7 @@ export class RegisterComponent {
     console.log(registerForm.value)
     this.userService.register(registerForm.value).subscribe(
       (response) => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/successful']);
       },
       (error) => {
         console.log(error);

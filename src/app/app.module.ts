@@ -27,6 +27,7 @@ import {AuthGuard} from "./auth/auth.guard";
 import {AuthInterceptor} from "./auth/auth.interceptor";
 import {UserService} from "./services/user.service";
 import { EmailVerificationComponent } from './email-verification/email-verification.component';
+import { VerifyYourEmailComponent } from './verify-your-email/verify-your-email.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { EmailVerificationComponent } from './email-verification/email-verificat
     BuyProductComponent,
     DragDirective,
     EmailVerificationComponent,
+    VerifyYourEmailComponent,
   ],
   imports: [
     CommonModule,

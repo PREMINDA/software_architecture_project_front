@@ -18,6 +18,7 @@ import {OrderDetailsComponent} from "./order-details/order-details.component";
 import {ProductDetailComponent} from "./product-detail/product-detail.component";
 import {OrderConfirmationComponent} from "./order-confirmation/order-confirmation.component";
 import {EmailVerificationComponent} from "./email-verification/email-verification.component";
+import {VerifyYourEmailComponent} from "./verify-your-email/verify-your-email.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,7 +41,9 @@ const routes: Routes = [
 
   { path: 'myOrders', component: UserOrderComponent ,  canActivate:[AuthGuard], data:{roles:['User']} },
   { path: 'register', component: RegisterComponent },
-  { path: 'verification/:id', component: EmailVerificationComponent }
+  { path: 'verification/:id', component: EmailVerificationComponent },
+  { path: 'successful', component: VerifyYourEmailComponent }
+
 ];
 
 @NgModule({
@@ -48,3 +51,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

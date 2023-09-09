@@ -26,7 +26,7 @@ export class EmailVerificationComponent implements OnInit{
     this.userService.verify(this.token).subscribe((response) => {
       this.isEn = true;
       this.message = (response as verifyMessage).message
-      setTimeout(()=>{ this.router.navigate(['/login']) }, 4000)
+      setTimeout(()=>{ this.router.navigate(['/login']) }, 1500)
       ;
     },(error)=>{
       console.log(error)

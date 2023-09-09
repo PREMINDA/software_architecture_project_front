@@ -23,7 +23,7 @@
       <app-icon-button *ngIf="!isAdmin()" [icon]="'notes'" [desLink]="['/myOrders']" >My Orders</app-icon-button>
       <app-icon-button *ngIf="isAdmin()" [icon]="'home'" [desLink]="['/addNewProduct']" >Add New Product</app-icon-button>
       <app-icon-button *ngIf="isAdmin()" [icon]="'home'" [desLink]="['/showProductDetailes']" >Show All Products</app-icon-button>
-      <app-icon-button *ngIf="isAdmin()" [icon]="'home'" [desLink]="['/orderInformation']" >Show All Products</app-icon-button>
+      <app-icon-button *ngIf="isAdmin()" [icon]="'home'" [desLink]="['/orderInformation']" >Show Orders</app-icon-button>
     </div>
   </mat-toolbar>
   <ng-content></ng-content>
